@@ -1,5 +1,13 @@
 # Historique
 
+## Version 14 — 25.11.2026
+
+- QR code Authenticator généré localement, secours à usage unique et protection contre le rejeu.
+- Renouvellement du mot de passe tous les 90 jours et révocation des autres sessions.
+- Chiffrement des contenus au repos après migration explicite, originaux et sessions compris.
+- Guide intégré et guides d’installation, d’utilisation et de sécurité actualisés.
+- Archive générique incluant les sources et les quatre capsules existantes, sans clé ni données privées.
+
 ## Version 13 — 25.11.2026
 
 - Guide intégré actualisé pour la dictée, les quatre commandes IA et la modification du résumé avant validation.

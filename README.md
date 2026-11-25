@@ -1,8 +1,10 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 13 — 25 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 14 — 25 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
 ## Nouveautés
+
+- Connexion avec QR code Authenticator généré localement, huit codes de secours, renouvellement du mot de passe tous les 90 jours et chiffrement des contenus au repos après activation serveur.
 
 - Dictée du contexte, des faits observés, de l’objectif du cadre et des enjeux, avec pause et relecture de la transcription.
 - Quatre commandes IA : **Résumer mes propos**, **M’aider à préciser**, **Explorer avec EOGI**, **Proposer une trame**.
@@ -21,7 +23,7 @@ Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-04.mp4`,
 
 ## Configuration et limites
 
-PHP 8.4+ avec SQLite, cURL, mbstring, iconv et fileinfo ; HTTPS ; clé personnelle du service IA pour activer les fonctions distantes. La transcription utilise l’adaptateur livré et son point d’accès autorisé, décrit dans le guide d’installation. Chaque installateur assume ses coûts et valide l’usage de ses données.
+PHP 8.4+ avec SQLite, libsodium, cURL, mbstring, iconv et fileinfo ; HTTPS ; clé personnelle du service IA pour activer les fonctions distantes. La transcription utilise l’adaptateur livré et son point d’accès autorisé, décrit dans le guide d’installation. Chaque installateur assume ses coûts et valide l’usage de ses données.
 
 La saisie manuelle et la recherche documentaire restent possibles sans appel IA. Le mode `demo` ne prend pas en charge les quatre commandes structurées. Les trames d’un modèle réel peuvent être courtes ou refusées si tronquées : la rédaction manuelle reste disponible. Les références affichées ne garantissent pas la justesse d’une proposition.
 
@@ -30,3 +32,12 @@ Le corpus public ne contient que des repères génériques et des CDC fictifs. A
 ## Vérifier le code
 
 Depuis `application/`, lancer `php tests/lint.php`, puis chaque script PHP du dossier `tests/`. Les tests utilisent SQLite en mémoire et des données fictives. Les scénarios d’interface se lancent avec `node tests/dictee-ui.cjs` et `node tests/preparation-ui.cjs` ; aucun paquet Node supplémentaire n’est requis. Ils vérifient les reprises de texte, confirmations, refus périmés et scénarios simulés, sans appeler un service IA réel.
+
+
+## Sécurité version 14
+
+La version 14 ajoute l’authentification TOTP obligatoire après activation serveur, huit codes de secours à usage unique, un renouvellement du mot de passe tous les 90 jours et le chiffrement authentifié des contenus au repos avec libsodium. Les réglages restent désactivés tant que la migration et la conservation de la clé n’ont pas été effectuées.
+
+Le titulaire scanne personnellement le QR code Authenticator (15 minutes pour la première association) puis renouvelle son mot de passe si demandé. Le chiffrement couvre les contenus métier, les documents et fragments RAG, les originaux et les sessions ; certaines métadonnées techniques restent lisibles. La clé de 32 octets reste hors de la racine Web et du dossier applicatif. Elle doit être sauvegardée indépendamment de l’hébergement. Les données nécessaires aux demandes explicites sont déchiffrées par le serveur avant utilisation.
+
+La migration de stockage ne remplace pas une procédure de déploiement avec maintenance, contrôle d’intégrité et sauvegarde cohérente. Le guide `SECURITE.md` décrit les périmètres, limites et tests. Les extensions PHP `sodium` et `pdo_sqlite` sont nécessaires. Les tests `security.php` et `security-migration.php` utilisent uniquement des données fictives.

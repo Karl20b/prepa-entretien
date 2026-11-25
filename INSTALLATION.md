@@ -2,7 +2,7 @@
 
 ## 1. Préparer l’hébergement
 
-Prévoir PHP 8.4+ avec `pdo_sqlite`, `curl`, `mbstring` et `iconv`, `fileinfo`, HTTPS et un accès en ligne de commande. Le stockage est SQLite : aucune base MariaDB n’est nécessaire. Les coûts d’hébergement et d’API restent à la charge de chaque installateur.
+Prévoir PHP 8.4+ avec `pdo_sqlite`, `sodium`, `curl`, `mbstring` et `iconv`, `fileinfo`, HTTPS et un accès en ligne de commande. Le stockage est SQLite : aucune base MariaDB n’est nécessaire. Les coûts d’hébergement et d’API restent à la charge de chaque installateur.
 
 Télécharger `Prepa_Entretien_Application.zip` depuis le dépôt puis le décompresser pour obtenir le dossier `application/`. Si vous avez utilisé **Code → Download ZIP**, décompresser aussi l’archive applicative incluse.
 
@@ -75,7 +75,25 @@ Ouvrir personnellement le lien obtenu à l’étape 3. Choisir et confirmer un m
 
 Créer ensuite les comptes depuis l’onglet Comptes. L’invitation de chaque compte est valable 48 heures. Le message d’accompagnement est modifiable ; l’administrateur le relit et l’envoie lui-même depuis sa messagerie.
 
-## 6. Vérifier avant utilisation
+## 6. Activer la 2FA et le chiffrement avant utilisation
+
+La distribution générique laisse ces fonctions désactivées jusqu’à une migration explicite. Copier le code ne suffit pas à sécuriser une installation existante. Préparer et tester une sauvegarde cohérente des sources, de la configuration, de SQLite et des originaux ; fermer l’accès Web et attendre la fin des requêtes avant migration. Valider d’abord la procédure sur une copie privée isolée.
+
+Créer un répertoire de clé privé **hors de la racine Web et hors du dossier applicatif** (permissions 0700), puis depuis `application/` :
+
+```sh
+php bin/activer-securite.php /home/votre-compte/cles-privees/prepa-entretien-storage.key
+```
+
+Adapter le chemin absolu ; le répertoire parent doit déjà exister. Le script crée une clé aléatoire de 32 octets si absente (0600), applique la migration, chiffre les contenus et active `security.encryption`, `security.mfa_required` et `security.password_days = 90`. Ne pas activer ces indicateurs à la main avant conversion. Le chemin n’est pas une garantie de placement hors Web : l’exploitant doit le vérifier.
+
+Sauvegarder personnellement le fichier clé dans un coffre indépendant avant de reprendre l’utilisation. Ne jamais le committer, le placer dans le Web ni le transmettre avec les sauvegardes chiffrées. Pour une installation déjà chiffrée, utiliser la **clé existante** : aucune régénération ni rotation improvisée. Préserver aussi `var/security-state.json`, la configuration et le chemin de clé lors des mises à jour.
+
+Le script vérifie sa sauvegarde SQLite chiffrée et l’intégrité de la base. Il ne compare pas à lui seul chaque donnée métier avant/après, ne chiffre pas la configuration technique et ne traite pas automatiquement les anciennes installations hors de son périmètre. Comparer les valeurs avant/après en environnement privé, contrôler les originaux et tester la restauration de l’ensemble. Un échec peut laisser des fichiers déjà chiffrés : conserver la clé et restaurer ensemble le code, la configuration et les données correspondant à la sauvegarde.
+
+Rétablir ensuite l’accès. Chaque titulaire réalise personnellement le scan du QR, conserve ses huit codes de secours et renouvelle son mot de passe si demandé. Contrôler l’accès jusqu’à Mes situations, les références et les médias. Le QR utilise le composant fourni sous licence MIT (`application/src/Security/LICENCE-QR.txt`), sans appel à un service externe.
+
+## 7. Vérifier avant utilisation
 
 - La page de connexion doit fonctionner en HTTPS.
 - Les chemins publics `/config/config.php`, `/var/`, `/src/` et `/sql/` doivent être refusés ou inexistants.
@@ -87,7 +105,7 @@ Créer ensuite les comptes depuis l’onglet Comptes. L’invitation de chaque c
 Le schéma SQLite est initialisé et ses migrations sont appliquées par les outils fournis. `sql/schema.sql` est un vestige historique MariaDB, pas le schéma de cette distribution.
 
 
-## 7. Dictée et assistant structuré
+## 8. Dictée et assistant structuré
 
 Les quatre commandes de préparation nécessitent `ai.provider = 'openai_compatible'` et un modèle acceptant la sortie `json_schema` stricte. La configuration d’exemple reste un point de départ : vérifier le modèle disponible dans son compte au moment de l’installation. Le mode `demo` ne réalise pas ces opérations structurées.
 
@@ -95,11 +113,11 @@ L’adaptateur STT livré utilise Infomaniak AI Services : il extrait l’identi
 
 Autoriser le microphone dans le navigateur sur le domaine HTTPS. Prévoir les limites PHP `upload_max_filesize` et `post_max_size` compatibles avec le maximum de 8 Mo accepté par le contrôleur, ainsi qu’un délai serveur suffisant. Tester avec une courte dictée fictive. Quotas applicatifs : 12 transcriptions et 30 demandes de préparation par heure et par compte ; ils ne remplacent pas les limites et la facturation du fournisseur.
 
-## 8. Mettre à jour une installation existante
+## 9. Mettre à jour une installation existante
 
 Effectuer d’abord une sauvegarde privée cohérente de SQLite, de `config/config.php`, de `var/`, des sources et des corpus personnalisés. Valider dans une copie isolée avant bascule. Ne jamais relancer l’activation si des comptes existent.
 
-Remplacer le code `src`, `templates`, `public`, `sql`, les outils CLI et les médias par la version 13, en préservant **la configuration réelle, les données et les corpus personnalisés**. Copier aussi les nouveaux assets vers la racine publique. Ajouter `help_docs` à partir du paquet ; ne pas remplacer un catalogue CDC personnalisé par les exemples fictifs.
+Remplacer le code `src`, `templates`, `public`, `sql`, les outils CLI et les médias par la version 14, en préservant **la configuration réelle, les données et les corpus personnalisés**. Copier aussi les nouveaux assets vers la racine publique. Ajouter `help_docs` à partir du paquet ; ne pas remplacer un catalogue CDC personnalisé par les exemples fictifs.
 
 Depuis le dossier privé `application/` :
 
@@ -112,4 +130,4 @@ Les migrations SQLite sont additives et idempotentes. `importer-aide.php` actual
 
 Pour des références personnalisées autorisées, adapter ensemble `reference-data/roles.json`, `documents.json` et `originals/`. Garder un `scope` stable par CDC, un `key` stable par document, les champs `title`, `text`, `category`, `resource`, `profile`, `page`, `source`. Consulter les deux exemples fictifs. Lancer `php bin/importer-references.php` après sauvegarde et vérification. Une référence désactivée n’est pas réactivée au réimport. Retirer un élément du JSON ne supprime pas son ancienne entrée : la désactiver dans la gestion documentaire si nécessaire.
 
-Contrôler après bascule : connexion, isolation entre deux comptes fictifs, dictée/transcription, quatre commandes, modification du résumé, remplacement explicite, enregistrement, rôle et sources, séparation aide/métier, lecture des quatre nouvelles vidéos. Conserver la possibilité de restaurer ensemble sources et sauvegarde SQLite.
+Contrôler après bascule : mot de passe puis TOTP ou secours à usage unique, renouvellement à 90 jours, lecture des contenus chiffrés, connexion, isolation entre deux comptes fictifs, dictée/transcription, quatre commandes, modification du résumé, remplacement explicite, enregistrement, rôle et sources, séparation aide/métier, lecture des quatre nouvelles vidéos. Conserver la possibilité de restaurer ensemble sources et sauvegarde SQLite.

@@ -1,4 +1,30 @@
-# Guide d’utilisation — version 13
+# Guide d’utilisation — version 14
+
+## Se connecter et associer Authenticator
+
+Ces étapes s’appliquent après activation de la sécurité par l’exploitant, décrite dans [INSTALLATION.md](INSTALLATION.md).
+
+1. Saisir son identifiant et son mot de passe. À la première connexion sécurisée, ouvrir Authenticator sur son téléphone : **+ → Ajouter un compte → Scanner un QR code**.
+2. Scanner le QR affiché sur l’ordinateur. Il est généré dans l’application sans service externe. Si le scan est impossible, utiliser la saisie manuelle proposée.
+3. Saisir dans Prépa Entretien le code à six chiffres du téléphone puis **Vérifier le code**. Ce code change toutes les 30 secondes ; la clé d’association ne change pas à ce rythme. La première association dispose de **15 minutes** après le mot de passe.
+4. Conserver les **huit codes de secours** dans son gestionnaire de mots de passe, puis confirmer leur conservation. Ils ne seront plus affichés ; chaque code ne fonctionne qu’une fois.
+5. Renouveler son mot de passe si demandé, puis continuer jusqu’à **Mes situations**. Après validation du facteur, la suite du parcours dispose de cinq minutes.
+
+Aux connexions suivantes : mot de passe puis code Authenticator, avec cinq minutes pour valider ce second facteur. Aucun nouveau scan n’est nécessaire. Ne jamais partager le QR, la clé ou les codes. Un code déjà accepté est refusé ; cinq échecs bloquent les essais pendant dix minutes.
+
+Si le code échoue, attendre le suivant et vérifier le réglage automatique de l’heure du téléphone. Si la page a expiré, se reconnecter. Sans téléphone, utiliser un code de secours inutilisé dans le même champ. Sans téléphone ni secours, contacter l’exploitant ; une réinitialisation du mot de passe ne supprime pas la 2FA.
+
+## Renouveler son mot de passe tous les 90 jours
+
+L’application impose le renouvellement après 90 jours, ainsi qu’aux anciens comptes dont la date de changement est inconnue. Saisir le mot de passe actuel, un nouveau mot de passe d’au moins **14 caractères**, différent des cinq derniers, puis sa confirmation. Le renouvellement invalide les autres sessions et anciens liens de réinitialisation. Authenticator reste associé.
+
+## Comprendre le chiffrement
+
+Après activation serveur, les contenus métier, messages, analyses, documents et fragments RAG, originaux et sessions sont chiffrés au repos. Certaines métadonnées restent lisibles : identifiants, rôles, catégories, relations et dates techniques. Les mots de passe et codes de secours sont hachés.
+
+La clé de stockage est conservée par l’exploitant hors Web et hors application, avec une sauvegarde indépendante dans son coffre. Elle est distincte du QR Authenticator et des codes de secours ; les utilisateurs ne la saisissent pas. Sa perte compromet la récupération des contenus.
+
+Le serveur autorisé peut déchiffrer les contenus. Les éléments nécessaires à une demande explicite sont transmis au service IA ou de transcription configuré. Il ne s’agit ni de chiffrement de bout en bout ni de chiffrement intégral de SQLite. Les anciennes copies et sauvegardes externes doivent être inventoriées séparément. Voir [SECURITE.md](SECURITE.md).
 
 ## Préparer la situation
 
@@ -47,3 +73,5 @@ Le Guide intégré présente le parcours P1 à P7 et les exemples d’utilisatio
 | `media/guide-04.mp4` | Utiliser les références dans EOGI et le feed-back | 1 min 35 |
 
 Les sous-titres `.vtt`, transcriptions `.txt` et affiches `.webp` sont inclus. Les vidéos sont consultables après connexion dans l’application ou directement dans le dossier extrait.
+
+Les quatre capsules existantes portent sur la dictée et l’assistance IA. La connexion sécurisée version 14 est décrite dans le présent guide et dans le Guide intégré ; ces vidéos ne constituent pas une démonstration du QR code.
