@@ -1,32 +1,32 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer des entretiens et réfléchir avant un échange professionnel. Version partageable issue de la version 8, avec édition des suggestions IA avant validation.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 13 — 25 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
-- Situations et échanges personnels avec un assistant IA.
-- Analyse systémique **EOGI** : environnement, organisation, groupe, individu.
-- Préparation d’un **feed-back** de valorisation ou d’amélioration.
-- Suggestions IA modifiables dans un aperçu : seuls les champs vides cochés sont complétés après validation.
-- Constellations d’équipe, recherche documentaire RAG lexicale et références consultables.
-- Comptes utilisateurs et administrateurs ; ajout de documents TXT/Markdown au corpus commun par les administrateurs.
-- Courriel d’invitation modifiable à copier ou à ouvrir dans sa messagerie, sans envoi automatique.
-- Guide intégré et quatre capsules à voix synthétique Vivienne, sous-titres et transcriptions.
+## Nouveautés
 
-## Télécharger et installer
+- Dictée du contexte, des faits observés, de l’objectif du cadre et des enjeux, avec pause et relecture de la transcription.
+- Quatre commandes IA : **Résumer mes propos**, **M’aider à préciser**, **Explorer avec EOGI**, **Proposer une trame**.
+- Résumé et propositions modifiables dans l’aperçu avant validation. Le cadre choisit la destination ; remplacer un texte existant nécessite une confirmation distincte, puis un enregistrement.
+- Choix d’un rôle et de son cahier des charges. Cette distribution fournit deux exemples fictifs, sans les CDC institutionnels privés.
+- Analyse systémique EOGI, feed-back de valorisation ou d’amélioration, constellation d’équipe, comptes et invitations modifiables.
+- Guide P1 à P7 séparé des méthodes métier dans le RAG et **quatre nouvelles capsules avec la voix synthétique Vivienne**, sous-titres et transcriptions.
 
-Télécharger **[Prepa_Entretien_Application.zip](Prepa_Entretien_Application.zip?raw=true)** puis décompresser cette archive. Elle contient le dossier `application/` prêt à configurer. Aucun compte GitHub n’est nécessaire.
+## Télécharger
 
-**Code → Download ZIP** permet aussi de récupérer les guides et l’archive applicative dans un même téléchargement ; décompresser ensuite `Prepa_Entretien_Application.zip`.
+[Télécharger l’application complète](Prepa_Entretien_Application.zip?raw=true), puis décompresser pour obtenir `application/` et les guides. **Aucun compte GitHub n’est nécessaire.** Avec **Code → Download ZIP**, décompresser également l’archive applicative incluse.
 
-Chaque personne installe sa propre copie avec son hébergement et ses accès. PHP 8.4 ou plus récent, SQLite, HTTPS et une clé IA personnelle sont nécessaires pour les appels au modèle. Il n’y a aucune dépendance à un portail ni à MariaDB.
+[Installation et mise à jour](INSTALLATION.md) · [Guide d’utilisation](UTILISATION.md) · [Sécurité et périmètre](SECURITE.md) · [Historique](CHANGELOG.md)
 
-➡️ **[Guide d’installation](INSTALLATION.md)** · [Utilisation](UTILISATION.md) · [Sécurité et périmètre](SECURITE.md)
+Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-04.mp4`, et dans le Guide après installation. Le code source est intégralement inclus dans l’archive, sous `application/src`, `templates`, `public`, `sql` et `tests`.
 
-La distribution comprend uniquement le code, des repères génériques et les capsules pédagogiques. Les PDF, photographies et fiches RH fournis pour l’installation privée, les comptes, les situations, les conversations, les clés et les sauvegardes en sont exclus. Aucun exemple RH réel n’est livré.
+## Configuration et limites
 
-L’IA propose des formulations et des hypothèses : l’utilisateur vérifie les sources et décide. Une grille ou une carte relationnelle ne prouve pas une causalité, ne constitue pas un diagnostic et ne remplace pas un échange avec la personne.
+PHP 8.4+ avec SQLite, cURL, mbstring, iconv et fileinfo ; HTTPS ; clé personnelle du service IA pour activer les fonctions distantes. La transcription utilise l’adaptateur livré et son point d’accès autorisé, décrit dans le guide d’installation. Chaque installateur assume ses coûts et valide l’usage de ses données.
+
+La saisie manuelle et la recherche documentaire restent possibles sans appel IA. Le mode `demo` ne prend pas en charge les quatre commandes structurées. Les trames d’un modèle réel peuvent être courtes ou refusées si tronquées : la rédaction manuelle reste disponible. Les références affichées ne garantissent pas la justesse d’une proposition.
+
+Le corpus public ne contient que des repères génériques et des CDC fictifs. Aucun compte, mot de passe, jeton, situation, conversation, fichier audio dicté, PDF RH, photographie privée ou sauvegarde de l’installation privée n’est distribué. Ce dépôt ne déploie pas automatiquement l’application.
 
 ## Vérifier le code
 
-Depuis `application/`, exécuter `php tests/lint.php`, puis les scripts `tests/integration.php`, `tests/accounts.php`, `tests/invitation.php`, `tests/ateliers.php`, `tests/assistance.php` et `tests/fill.php`. Ces tests utilisent des données fictives et des bases en mémoire ; ils ne valident pas la qualité sémantique d’un modèle IA réel.
-
-Ce dépôt ne déploie pas automatiquement l’application. La copie privée existante reste indépendante du dépôt public.
+Depuis `application/`, lancer `php tests/lint.php`, puis chaque script PHP du dossier `tests/`. Les tests utilisent SQLite en mémoire et des données fictives. Les scénarios d’interface se lancent avec `node tests/dictee-ui.cjs` et `node tests/preparation-ui.cjs` ; aucun paquet Node supplémentaire n’est requis. Ils vérifient les reprises de texte, confirmations, refus périmés et scénarios simulés, sans appeler un service IA réel.

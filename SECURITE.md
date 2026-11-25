@@ -13,3 +13,12 @@ L’API IA reçoit les éléments du contexte et les extraits documentaires néc
 Cette version est destinée aux données fictives ou d’exercice. Son partage ne constitue ni une homologation ni une autorisation institutionnelle pour des données RH réelles. Une exploitation avec de telles données demande son propre cadre de protection et de validation.
 
 Signaler un problème sans publier de mot de passe, de lien d’activation ou de dossier RH dans une issue publique.
+
+
+## Dictée et préparation assistée — version 13
+
+La transcription transmet l’audio au service configuré sur action explicite. Les appels de l’assistant transmettent le récit nécessaire et, pour EOGI/trame, les extraits retenus du corpus. Les règles de conservation du fournisseur doivent être vérifiées par l’exploitant. La dictée ne doit contenir que des données fictives ou d’exercice dans ce prototype.
+
+La validation du résumé ne suffit pas à enregistrer la situation : utiliser Enregistrer. Les champs existants nécessitent une confirmation distincte avant remplacement. Les réponses périmées, tronquées ou structurellement invalides sont refusées. Ces contrôles ne garantissent ni l’exactitude des faits ni la pertinence d’une question. Aucun contenu dicté ou échange n’est automatiquement ajouté au RAG.
+
+Le corpus d’aide `aide_utilisation` est exclu des recherches métier par défaut. Les attentes d’un CDC ne constituent pas une appréciation de performance. Les deux CDC publics sont entièrement fictifs ; les CDC et documents RH privés restent exclus de la distribution.
