@@ -1,4 +1,4 @@
-# Guide d’utilisation — version 15.1
+# Guide d’utilisation — version 16
 
 ## Se connecter et associer Authenticator
 
@@ -30,7 +30,11 @@ Le serveur autorisé peut déchiffrer les contenus. Les éléments nécessaires 
 
 La préparation actuelle est affichée une seule fois. Les échanges et générations antérieurs restent repliés dans Historique. Choisir **Modifier et exporter la préparation** pour corriger une version de travail indépendante. Les réponses d’origine sont conservées. Une nouvelle génération ne remplace pas les corrections ; un changement de contexte est signalé.
 
-Dans EOGI ou Feed-back, choisir **Modifier la trame et exporter Word / PDF**. Le texte est modifiable même avant génération, à partir de la grille. La version de travail et la grille sont distinctes : modifier le document ne remplit pas automatiquement les champs de la grille.
+Dans EOGI ou Feed-back, choisir **Modifier la trame et exporter Word / PDF**. Le texte est modifiable même avant génération, à partir des faits disponibles, de la grille et, si nécessaire, de la dernière proposition de l’assistant du même atelier. La version de travail et la grille sont distinctes : modifier le document ne remplit pas automatiquement les champs de la grille.
+
+L’éditeur présente chaque rubrique avec son titre et une zone de texte. Vous n’avez pas à saisir de `##` ou de `**` pour mettre le document en forme. Corrigez les formulations, les questions et les attentes dans les rubriques utiles.
+
+Si un ancien brouillon est vide ou dépassé, choisissez **Repartir de la proposition actuelle**. Confirmez le remplacement dans l’éditeur, relisez cette proposition puis enregistrez. Vos corrections enregistrées ne sont remplacées qu’à ce dernier enregistrement. Une nouvelle génération seule ne les écrase pas.
 
 Les boutons **Enregistrer et télécharger Word / PDF** enregistrent d’abord le texte affiché. Le document contient cette version et ses références, sans l’historique complet des échanges. Aucun nouvel appel IA n’est nécessaire. Les conflits entre onglets sont refusés ; copiez vos corrections avant de recharger. Les exports sont lisibles hors application : conservez-les dans un espace privé.
 
@@ -65,6 +69,22 @@ Dans les ateliers EOGI et feed-back, solliciter l’assistance, corriger l’ape
 
 Les administrateurs peuvent alimenter le corpus commun avec des fichiers TXT/Markdown autorisés, de 2 Mo maximum. Les fiches d’aide sont classées `aide_utilisation`, séparément des CDC et des méthodes métier. La recherche d’aide seule n’appelle pas le modèle IA.
 
+### Préparer une trame de feed-back complète
+
+Les faits observés de la situation sont proposés dans **1 · Exposer les faits** lorsqu’aucun fait n’est encore saisi dans la grille. Relisez-les et corrigez-les avant **Enregistrer et proposer une trame**. Si vous videz volontairement ce champ, renseignez un fait observable avant la génération : les pistes de l’assistant ne remplacent pas un fait vérifié. Le brouillon reste enregistré si la génération est refusée ou échoue.
+
+La génération reçoit les pistes récentes de l’assistant du même contexte, en plus des champs renseignés et des sources actuelles. Elle doit les articuler dans les six étapes : faits, effets, écoute, attentes, suite co-construite et suivi. Les champs du cadre priment ; relisez la cohérence et les références. Aucune proposition n’est un accord déjà obtenu du collaborateur. Vous pouvez ensuite modifier la trame par rubriques et l’exporter. La formulation et la longueur générées peuvent varier ; l’éditeur permet de les corriger sans nouvel appel IA.
+
+## Entourer des formes dans la constellation
+
+1. Ouvrez une constellation et choisissez **Entourer des formes**.
+2. Nommez le cercle puis cochez les formes à regrouper dans le panneau de réglage.
+3. Cliquez sur **Ajuster autour des formes cochées**. Réglez la largeur et la hauteur selon la disposition souhaitée.
+4. Déplacez le contour par glisser-déposer sur son bord ou avec les réglages de position. Cliquez sur son bord pour le sélectionner de nouveau.
+5. Vérifiez l’état d’enregistrement. Le cercle et ses membres sont conservés après réouverture et le contour figure dans les exports **PNG** et **SVG**.
+
+Le contour reste indépendant des formes : après leur déplacement, ajustez-le de nouveau. Un regroupement représente votre perception ; il ne prouve ni affinité, ni causalité, ni caractéristique personnelle. Les anciennes constellations restent utilisables sans cercle.
+
 ## Comptes et invitations
 
 Identifiant : 3 à 40 caractères, premier caractère lettre minuscule ou chiffre, puis lettres minuscules, chiffres, point, tiret ou soulignement ; sans espace ni accent. L’administrateur crée le compte, choisit son rôle et prépare un message d’invitation modifiable. L’envoi est effectué par l’administrateur dans sa messagerie. Lien d’activation valable 48 heures ; mot de passe personnel de 14 caractères minimum. Le rôle administrateur permet la gestion du corpus et des comptes, sans accès aux situations d’autres utilisateurs. La base documentaire et son URL sont réservées aux administrateurs. **Tester le RAG reste disponible pour les utilisateurs et les administrateurs**, avec les extraits de recherche nécessaires.
@@ -87,3 +107,5 @@ Les sous-titres `.vtt`, transcriptions `.txt` et affiches `.webp` sont inclus. L
 La cinquième capsule explique le nouveau parcours de sécurité ; les quatre premières conservent leur sujet.
 
 La capsule 06 montre les deux chemins d’édition, l’enregistrement de la version de travail, les exports DOCX et PDF et les précautions de conservation. [Vidéo seule](Guide_06_Modifier_et_exporter.mp4).
+
+La version 16 actualise les textes du guide et l’éditeur. Les six vidéos existantes sont conservées ; la capsule 06 montre le parcours d’édition et d’export de la version 15.1, dont la présentation de l’éditeur diffère. La fonction de cercles est décrite ci-dessus et dans le guide intégré.

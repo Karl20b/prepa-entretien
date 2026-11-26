@@ -56,3 +56,9 @@ La migration doit être répétée hors production, sous maintenance, avec sauve
 ## Versions de travail et exports
 
 Les contenus et sources de `pe_redactions` sont chiffrés lorsque le coffre est actif. Chaque accès et export vérifie le propriétaire de la situation ; les écritures vérifient la révision et le contexte, sous transaction. La base documentaire exige le rôle administrateur côté serveur. La recherche RAG reste accessible aux deux rôles et montre des extraits ; cela ne constitue pas une restriction documentaire par groupe. Les exports sont générés en mémoire puis téléchargés avec `Cache-Control: no-store` ; ils ne sont pas chiffrés par la clé de stockage de l’application. Ils demandent une conservation privée par leur destinataire.
+
+## Version 16 : reprises et cercles
+
+Les cercles et leurs membres font partie du contenu de constellation existant et suivent les mêmes contrôles de propriétaire et le même chiffrement lorsque celui-ci est activé. L’éditeur par rubriques conserve du texte ; il n’accepte pas de HTML exécutable. Les vérifications de révision et de contexte restent appliquées avant enregistrement et export. Les dernières pistes d’assistance transmises à une demande de trame restent des propositions non validées et ne constituent pas des faits.
+
+La distribution publique n’inclut aucune configuration active, clé, situation, conversation, sauvegarde, photographie ou document RH privé. Les vidéos conservées ne montrent que des exercices fictifs.

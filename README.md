@@ -1,8 +1,12 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 15.1 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 16 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
 ## Nouveautés
+
+- Feed-back : faits de la situation proposés pour relecture et pistes récentes de l’assistant intégrées à la génération de la trame.
+- Édition par rubriques, avec titres lisibles sans marques Markdown ; reprise explicite de la proposition actuelle sans écrasement automatique des corrections.
+- Constellation : cercles nommés autour des formes sélectionnées, réglables et conservés dans les exports PNG/SVG.
 
 - Sixième capsule Vivienne : modifier la préparation et la trame de feed-back, enregistrer et exporter en Word ou PDF. Sous-titres et transcription inclus.
 

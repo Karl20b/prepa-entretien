@@ -139,3 +139,11 @@ Ajouter `vendor/tfpdf/`, ses polices et notices de licence, `src/Redaction/`, `s
 ## Capsule 06 — version 15.1
 
 Mettre à jour `src/Media.php`, `templates/guide.php`, `config/guide.json` et ajouter les quatre fichiers `media/guide-06.*`. Préserver la configuration, les corpus et les données. Aucune migration de base ni nouvel appel IA métier n’est nécessaire pour cette capsule.
+
+## Mise à jour version 16 depuis 15.1
+
+Sauvegarder l’installation et valider la mise à jour sur une copie isolée. Cette version ne requiert aucune nouvelle migration SQL. Préserver `config/config.php`, les données, sessions et documents privés, la clé existante et les corpus personnalisés ; ne pas remplacer ces éléments par ceux d’une installation neuve.
+
+Mettre à jour les sources `src/Atelier/`, `src/Redaction/` et `src/Constellation/`, `public/index.php`, les modèles `atelier.php`, `redaction.php`, `constellation_edit.php` et `guide.php`, ainsi que `tests/v16.php`. Copier les quatre assets `redaction.js`, `redaction.css`, `constellation.js` et `constellation.css` dans la racine Web prévue à l’étape 4. Ne pas exposer les sources privées sur Internet. Rapprocher les personnalisations de son guide avant remplacement.
+
+Sur une copie de validation, lancer les tests PHP du dossier `tests/` (dont `v16.php`), puis vérifier : reprise des faits existants dans le feed-back, respect d’un effacement volontaire, prise en compte des pistes de l’assistant, sauvegarde d’une rubrique, reprise explicite de la proposition, exports DOCX/PDF, création et réouverture d’un cercle avec ses membres et exports PNG/SVG. Recharger la page pour récupérer les assets versionnés. Les six capsules restent incluses, sans régénération vidéo pour cette version.

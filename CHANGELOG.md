@@ -1,5 +1,14 @@
 # Historique
 
+## Version 16 — 26.11.2026
+
+- Faits de la situation repris pour relecture dans la grille feed-back ; effacement volontaire respecté et erreur mieux ciblée si aucun fait n’est renseigné.
+- Pistes récentes du même atelier incluses dans la génération de trame, avec priorité aux champs du cadre.
+- Édition lisible par rubriques, reprise explicite de la proposition actuelle et conservation des corrections jusqu’à enregistrement.
+- Cercles/ellipses nommés, membres sélectionnables, ajustement autour des formes, sauvegarde et exports PNG/SVG.
+- Guide intégré et documents d’installation, d’utilisation et de sécurité actualisés ; six capsules existantes conservées.
+- 374 vérifications PHP et 41 contrôles HTTP sur cas fictifs réussis lors de la recette de cette version.
+
 ## Version 15.1 — 26.11.2026
 
 - Capsule G06 avec voix Vivienne : modifier la préparation et le feed-back, enregistrer et télécharger en Word ou PDF.
