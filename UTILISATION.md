@@ -1,4 +1,4 @@
-# Guide d’utilisation — version 14
+# Guide d’utilisation — version 15
 
 ## Se connecter et associer Authenticator
 
@@ -25,6 +25,14 @@ Après activation serveur, les contenus métier, messages, analyses, documents e
 La clé de stockage est conservée par l’exploitant hors Web et hors application, avec une sauvegarde indépendante dans son coffre. Elle est distincte du QR Authenticator et des codes de secours ; les utilisateurs ne la saisissent pas. Sa perte compromet la récupération des contenus.
 
 Le serveur autorisé peut déchiffrer les contenus. Les éléments nécessaires à une demande explicite sont transmis au service IA ou de transcription configuré. Il ne s’agit ni de chiffrement de bout en bout ni de chiffrement intégral de SQLite. Les anciennes copies et sauvegardes externes doivent être inventoriées séparément. Voir [SECURITE.md](SECURITE.md).
+
+## Modifier et exporter sa préparation
+
+La préparation actuelle est affichée une seule fois. Les échanges et générations antérieurs restent repliés dans Historique. Choisir **Modifier et exporter la préparation** pour corriger une version de travail indépendante. Les réponses d’origine sont conservées. Une nouvelle génération ne remplace pas les corrections ; un changement de contexte est signalé.
+
+Dans EOGI ou Feed-back, choisir **Modifier la trame et exporter Word / PDF**. Le texte est modifiable même avant génération, à partir de la grille. La version de travail et la grille sont distinctes : modifier le document ne remplit pas automatiquement les champs de la grille.
+
+Les boutons **Enregistrer et télécharger Word / PDF** enregistrent d’abord le texte affiché. Le document contient cette version et ses références, sans l’historique complet des échanges. Aucun nouvel appel IA n’est nécessaire. Les conflits entre onglets sont refusés ; copiez vos corrections avant de recharger. Les exports sont lisibles hors application : conservez-les dans un espace privé.
 
 ## Préparer la situation
 
@@ -59,7 +67,7 @@ Les administrateurs peuvent alimenter le corpus commun avec des fichiers TXT/Mar
 
 ## Comptes et invitations
 
-Identifiant : 3 à 40 caractères, premier caractère lettre minuscule ou chiffre, puis lettres minuscules, chiffres, point, tiret ou soulignement ; sans espace ni accent. L’administrateur crée le compte, choisit son rôle et prépare un message d’invitation modifiable. L’envoi est effectué par l’administrateur dans sa messagerie. Lien d’activation valable 48 heures ; mot de passe personnel de 14 caractères minimum. Le rôle administrateur permet la gestion du corpus et des comptes, sans accès aux situations d’autres utilisateurs.
+Identifiant : 3 à 40 caractères, premier caractère lettre minuscule ou chiffre, puis lettres minuscules, chiffres, point, tiret ou soulignement ; sans espace ni accent. L’administrateur crée le compte, choisit son rôle et prépare un message d’invitation modifiable. L’envoi est effectué par l’administrateur dans sa messagerie. Lien d’activation valable 48 heures ; mot de passe personnel de 14 caractères minimum. Le rôle administrateur permet la gestion du corpus et des comptes, sans accès aux situations d’autres utilisateurs. La base documentaire et son URL sont réservées aux administrateurs. **Tester le RAG reste disponible pour les utilisateurs et les administrateurs**, avec les extraits de recherche nécessaires.
 
 ## Guide et capsules
 
@@ -71,7 +79,8 @@ Le Guide intégré présente le parcours P1 à P7 et les exemples d’utilisatio
 | `media/guide-02.mp4` | Choisir parmi les quatre commandes IA | 1 min 38 |
 | `media/guide-03.mp4` | Modifier le résumé avant validation | 1 min 40 |
 | `media/guide-04.mp4` | Utiliser les références dans EOGI et le feed-back | 1 min 35 |
+| `media/guide-05.mp4` | Authenticator, secours et renouvellement du mot de passe | 1 min 54 |
 
 Les sous-titres `.vtt`, transcriptions `.txt` et affiches `.webp` sont inclus. Les vidéos sont consultables après connexion dans l’application ou directement dans le dossier extrait.
 
-Les quatre capsules existantes portent sur la dictée et l’assistance IA. La connexion sécurisée version 14 est décrite dans le présent guide et dans le Guide intégré ; ces vidéos ne constituent pas une démonstration du QR code.
+La cinquième capsule explique le nouveau parcours de sécurité ; les quatre premières conservent leur sujet.

@@ -117,7 +117,7 @@ Autoriser le microphone dans le navigateur sur le domaine HTTPS. Prévoir les li
 
 Effectuer d’abord une sauvegarde privée cohérente de SQLite, de `config/config.php`, de `var/`, des sources et des corpus personnalisés. Valider dans une copie isolée avant bascule. Ne jamais relancer l’activation si des comptes existent.
 
-Remplacer le code `src`, `templates`, `public`, `sql`, les outils CLI et les médias par la version 14, en préservant **la configuration réelle, les données et les corpus personnalisés**. Copier aussi les nouveaux assets vers la racine publique. Ajouter `help_docs` à partir du paquet ; ne pas remplacer un catalogue CDC personnalisé par les exemples fictifs.
+Remplacer le code `src`, `templates`, `public`, `sql`, les outils CLI et les médias par la version 15, en préservant **la configuration réelle, les données et les corpus personnalisés**. Copier aussi les nouveaux assets vers la racine publique. Ajouter `help_docs` à partir du paquet ; ne pas remplacer un catalogue CDC personnalisé par les exemples fictifs.
 
 Depuis le dossier privé `application/` :
 
@@ -131,3 +131,7 @@ Les migrations SQLite sont additives et idempotentes. `importer-aide.php` actual
 Pour des références personnalisées autorisées, adapter ensemble `reference-data/roles.json`, `documents.json` et `originals/`. Garder un `scope` stable par CDC, un `key` stable par document, les champs `title`, `text`, `category`, `resource`, `profile`, `page`, `source`. Consulter les deux exemples fictifs. Lancer `php bin/importer-references.php` après sauvegarde et vérification. Une référence désactivée n’est pas réactivée au réimport. Retirer un élément du JSON ne supprime pas son ancienne entrée : la désactiver dans la gestion documentaire si nécessaire.
 
 Contrôler après bascule : mot de passe puis TOTP ou secours à usage unique, renouvellement à 90 jours, lecture des contenus chiffrés, connexion, isolation entre deux comptes fictifs, dictée/transcription, quatre commandes, modification du résumé, remplacement explicite, enregistrement, rôle et sources, séparation aide/métier, lecture des quatre nouvelles vidéos. Conserver la possibilité de restaurer ensemble sources et sauvegarde SQLite.
+
+## Mise à jour version 15
+
+Ajouter `vendor/tfpdf/`, ses polices et notices de licence, `src/Redaction/`, `sql/007_redactions.sql`, les modèles et `public/assets/redaction.js`. La migration 007 crée les versions de travail ; elles utilisent le coffre après activation du chiffrement. Copier aussi `media/guide-05.*` et `config/guide.json`. Préserver les corpus, rôles et données personnalisés. Exécuter `php bin/migrer.php` hors trafic ; sur une installation chiffrée, le même script installe aussi les contrôles de chiffrement sur la nouvelle table. Vérifier les accès directs docs (403 pour un utilisateur), Tester le RAG pour les deux rôles, les corrections, conflits entre onglets et les téléchargements Word/PDF.

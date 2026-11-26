@@ -1,5 +1,12 @@
 # Historique
 
+## Version 15 — 26.11.2026
+
+- Préparation actuelle et historique replié ; version corrigée indépendante, chiffrée et protégée contre les conflits.
+- Trames EOGI et feed-back éditables, exports DOCX et PDF Unicode.
+- Base documentaire administrateur uniquement ; recherche RAG pour les deux rôles.
+- Capsule G05 Vivienne sur la connexion sécurisée, sous-titres et transcription.
+
 ## Version 14 — 25.11.2026
 
 - QR code Authenticator généré localement, secours à usage unique et protection contre le rejeu.

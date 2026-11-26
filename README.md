@@ -1,8 +1,13 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 14 — 25 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 15 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
 ## Nouveautés
+
+- Préparation courante affichée une fois, historique replié, version de travail modifiable et sauvegardée indépendamment des réponses IA.
+- Exports Word `.docx` et PDF du texte corrigé ; trames de feed-back modifiables.
+- Base documentaire réservée aux administrateurs ; Tester le RAG accessible aux deux rôles.
+- Cinquième capsule Vivienne : Authenticator, codes de secours et renouvellement du mot de passe (1 min 54).
 
 - Connexion avec QR code Authenticator généré localement, huit codes de secours, renouvellement du mot de passe tous les 90 jours et chiffrement des contenus au repos après activation serveur.
 
@@ -11,7 +16,7 @@ Application pédagogique autonome pour préparer un entretien professionnel, str
 - Résumé et propositions modifiables dans l’aperçu avant validation. Le cadre choisit la destination ; remplacer un texte existant nécessite une confirmation distincte, puis un enregistrement.
 - Choix d’un rôle et de son cahier des charges. Cette distribution fournit deux exemples fictifs, sans les CDC institutionnels privés.
 - Analyse systémique EOGI, feed-back de valorisation ou d’amélioration, constellation d’équipe, comptes et invitations modifiables.
-- Guide P1 à P7 séparé des méthodes métier dans le RAG et **quatre nouvelles capsules avec la voix synthétique Vivienne**, sous-titres et transcriptions.
+- Guide P1 à P7 séparé des méthodes métier dans le RAG et **cinq capsules avec la voix synthétique Vivienne**, sous-titres et transcriptions.
 
 ## Télécharger
 
@@ -19,7 +24,7 @@ Application pédagogique autonome pour préparer un entretien professionnel, str
 
 [Installation et mise à jour](INSTALLATION.md) · [Guide d’utilisation](UTILISATION.md) · [Sécurité et périmètre](SECURITE.md) · [Historique](CHANGELOG.md)
 
-Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-04.mp4`, et dans le Guide après installation. Le code source est intégralement inclus dans l’archive, sous `application/src`, `templates`, `public`, `sql` et `tests`.
+Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-05.mp4`, et dans le Guide après installation. Le code source est intégralement inclus dans l’archive, sous `application/src`, `templates`, `public`, `sql` et `tests`.
 
 ## Configuration et limites
 
@@ -34,9 +39,9 @@ Le corpus public ne contient que des repères génériques et des CDC fictifs. A
 Depuis `application/`, lancer `php tests/lint.php`, puis chaque script PHP du dossier `tests/`. Les tests utilisent SQLite en mémoire et des données fictives. Les scénarios d’interface se lancent avec `node tests/dictee-ui.cjs` et `node tests/preparation-ui.cjs` ; aucun paquet Node supplémentaire n’est requis. Ils vérifient les reprises de texte, confirmations, refus périmés et scénarios simulés, sans appeler un service IA réel.
 
 
-## Sécurité version 14
+## Sécurité version 15
 
-La version 14 ajoute l’authentification TOTP obligatoire après activation serveur, huit codes de secours à usage unique, un renouvellement du mot de passe tous les 90 jours et le chiffrement authentifié des contenus au repos avec libsodium. Les réglages restent désactivés tant que la migration et la conservation de la clé n’ont pas été effectuées.
+La version 15 ajoute l’authentification TOTP obligatoire après activation serveur, huit codes de secours à usage unique, un renouvellement du mot de passe tous les 90 jours et le chiffrement authentifié des contenus au repos avec libsodium. Les réglages restent désactivés tant que la migration et la conservation de la clé n’ont pas été effectuées.
 
 Le titulaire scanne personnellement le QR code Authenticator (15 minutes pour la première association) puis renouvelle son mot de passe si demandé. Le chiffrement couvre les contenus métier, les documents et fragments RAG, les originaux et les sessions ; certaines métadonnées techniques restent lisibles. La clé de 32 octets reste hors de la racine Web et du dossier applicatif. Elle doit être sauvegardée indépendamment de l’hébergement. Les données nécessaires aux demandes explicites sont déchiffrées par le serveur avant utilisation.
 
