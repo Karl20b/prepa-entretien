@@ -62,3 +62,7 @@ Les contenus et sources de `pe_redactions` sont chiffrés lorsque le coffre est 
 Les cercles et leurs membres font partie du contenu de constellation existant et suivent les mêmes contrôles de propriétaire et le même chiffrement lorsque celui-ci est activé. L’éditeur par rubriques conserve du texte ; il n’accepte pas de HTML exécutable. Les vérifications de révision et de contexte restent appliquées avant enregistrement et export. Les dernières pistes d’assistance transmises à une demande de trame restent des propositions non validées et ne constituent pas des faits.
 
 La distribution publique n’inclut aucune configuration active, clé, situation, conversation, sauvegarde, photographie ou document RH privé. Les vidéos conservées ne montrent que des exercices fictifs.
+
+## Permissions des assets publics — version 16.1
+
+`bin/verifier-assets.php` contrôle uniquement les dix fichiers CSS/JS du dossier public `assets` et peut leur appliquer le mode 0644 après comparaison de contenu avec les sources du paquet. Il ne charge ni configuration, ni session, ni base, ne modifie pas les dossiers et refuse les liens symboliques. L’accès public à ces seuls fichiers statiques est nécessaire à l’interface ; il ne rend publics ni les données métier ni les sources privées. Ne pas utiliser une correction récursive de permissions sur l’installation privée. Vérifier également l’accès HTTP réel : un mode conforme ne résout pas les restrictions d’ACL ou du serveur Web.

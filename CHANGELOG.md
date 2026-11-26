@@ -1,5 +1,12 @@
 # Historique
 
+## Version 16.1 — 26.11.2026
+
+- Prévention des erreurs 403 sur les assets : modes 0644 explicités dans l’archive et outil CLI de vérification/correction ciblée des dix CSS/JS publics.
+- Refus avant correction des fichiers manquants, différents ou liés ; configuration et clé privées préservées.
+- Guide d’installation enrichi avec contrôle HTTPS, types de contenu, recette des formes/cercle et de l’éditeur.
+- Test isolé des permissions sur fichiers fictifs ; aucune migration SQL, aucun changement des vidéos.
+
 ## Version 16 — 26.11.2026
 
 - Faits de la situation repris pour relecture dans la grille feed-back ; effacement volontaire respecté et erreur mieux ciblée si aucun fait n’est renseigné.

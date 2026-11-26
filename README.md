@@ -1,8 +1,10 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 16 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 16.1 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
 ## Nouveautés
+
+- Installation : contrôle des permissions des fichiers CSS/JavaScript et outil CLI de correction ciblée pour prévenir les plateaux vides et erreurs 403.
 
 - Feed-back : faits de la situation proposés pour relecture et pistes récentes de l’assistant intégrées à la génération de la trame.
 - Édition par rubriques, avec titres lisibles sans marques Markdown ; reprise explicite de la proposition actuelle sans écrasement automatique des corrections.

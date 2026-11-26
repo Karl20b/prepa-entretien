@@ -54,7 +54,7 @@ Dans la racine Web de votre site, créer uniquement ce fichier `index.php`, en a
 require '/home/votre-compte/prepa-prive/application/public/index.php';
 ```
 
-Copier `application/public/assets/` dans le dossier public `assets/`. Le contrôleur privé sert lui-même les capsules après authentification. Activer la redirection HTTP → HTTPS et désactiver l’indexation des dossiers dans les paramètres de l’hébergeur.
+Copier `application/public/assets/` dans le dossier public `assets/`. Vérifier ensuite leurs permissions et leur accessibilité HTTPS selon la section **Vérifier les fichiers publics et prévenir les erreurs 403 — version 16.1** ci-dessous. Le contrôleur privé sert lui-même les capsules après authentification. Activer la redirection HTTP → HTTPS et désactiver l’indexation des dossiers dans les paramètres de l’hébergeur.
 
 Sur un hébergement Apache autorisant `.htaccess`, on peut ajouter :
 
@@ -147,3 +147,43 @@ Sauvegarder l’installation et valider la mise à jour sur une copie isolée. C
 Mettre à jour les sources `src/Atelier/`, `src/Redaction/` et `src/Constellation/`, `public/index.php`, les modèles `atelier.php`, `redaction.php`, `constellation_edit.php` et `guide.php`, ainsi que `tests/v16.php`. Copier les quatre assets `redaction.js`, `redaction.css`, `constellation.js` et `constellation.css` dans la racine Web prévue à l’étape 4. Ne pas exposer les sources privées sur Internet. Rapprocher les personnalisations de son guide avant remplacement.
 
 Sur une copie de validation, lancer les tests PHP du dossier `tests/` (dont `v16.php`), puis vérifier : reprise des faits existants dans le feed-back, respect d’un effacement volontaire, prise en compte des pistes de l’assistant, sauvegarde d’une rubrique, reprise explicite de la proposition, exports DOCX/PDF, création et réouverture d’un cercle avec ses membres et exports PNG/SVG. Recharger la page pour récupérer les assets versionnés. Les six capsules restent incluses, sans régénération vidéo pour cette version.
+
+## Vérifier les fichiers publics et prévenir les erreurs 403 — version 16.1
+
+Un plateau de constellation vide ou des boutons inactifs peut venir du chargement refusé d’un fichier JavaScript. Le correctif V16.1 fournit `application/bin/verifier-assets.php` pour contrôler les dix fichiers CSS/JS publics, sans charger la configuration ni ouvrir la base de données.
+
+Après copie des assets à l’étape 4, ou après chaque mise à jour, lancer depuis le dossier privé `application/` (adapter le chemin à son hébergement) :
+
+```sh
+php bin/verifier-assets.php /home/votre-compte/sites/entretiens.exemple.ch/assets
+```
+
+Si le contrôle signale des permissions différentes de **0644**, relancer avec la correction explicite :
+
+```sh
+php bin/verifier-assets.php /home/votre-compte/sites/entretiens.exemple.ch/assets --corriger-permissions
+php bin/verifier-assets.php /home/votre-compte/sites/entretiens.exemple.ch/assets
+```
+
+L’outil compare chaque fichier à celui du paquet installé avant toute correction. Il ne copie pas les fichiers, ne change pas leur propriétaire et refuse les fichiers absents, différents ou symboliquement liés. Si les contenus diffèrent, rapprocher les personnalisations et recopier les assets de la bonne version, puis recommencer. Il corrige uniquement les dix fichiers CSS/JS connus du dossier public `assets`, jamais un fichier PHP, une configuration ou une clé. Aucun appel IA ni migration SQL n’est nécessaire.
+
+Les fichiers statiques publics utilisent normalement **0644** et leurs dossiers doivent être traversables par le serveur Web (souvent **0755**, selon l’hébergement). L’outil ne modifie pas les dossiers, les ACL ou le propriétaire : si le serveur refuse encore l’accès, vérifier ces points et les règles `.htaccess` avec l’exploitant. **Ne pas appliquer `chmod -R 777` ou une permission de lecture publique au dossier privé de l’application.** Conserver les clés et répertoires privés selon les consignes de sécurité précédentes.
+
+L’archive V16.1 déclare explicitement le mode 0644 des dix assets publics. Certains logiciels d’extraction ou de transfert changent ces permissions ; le contrôle sur l’hébergement reste donc nécessaire. Une empreinte correcte ne prouve pas que le navigateur peut lire le fichier.
+
+### Contrôle final par HTTPS et dans le navigateur
+
+Depuis un terminal, remplacer le domaine d’exemple par celui de sa propre installation :
+
+```sh
+curl --fail --silent --show-error --output /dev/null --write-out '%{http_code} %{content_type}\n' 'https://entretiens.exemple.ch/assets/constellation.js?v=16'
+curl --fail --silent --show-error --output /dev/null --write-out '%{http_code} %{content_type}\n' 'https://entretiens.exemple.ch/assets/constellation.css?v=16'
+curl --fail --silent --show-error --output /dev/null --write-out '%{http_code} %{content_type}\n' 'https://entretiens.exemple.ch/assets/redaction.js?v=16'
+curl --fail --silent --show-error --output /dev/null --write-out '%{http_code} %{content_type}\n' 'https://entretiens.exemple.ch/assets/redaction.css?v=16'
+```
+
+Chaque URL doit répondre **200**, avec un type JavaScript (`application/javascript` ou `text/javascript`) ou CSS (`text/css`) selon le fichier, sans redirection vers la connexion ni page HTML d’erreur. On peut aussi ouvrir ces URL dans le navigateur. Une réponse **403** est un refus d’accès ; une réponse **404** indique un fichier absent ou un mauvais chemin.
+
+Recharger ensuite l’application, créer un dessin fictif, ajouter deux formes et un cercle, enregistrer puis rouvrir le dessin. Vérifier également l’enregistrement d’une rubrique dans l’éditeur et les exports Word/PDF. Éviter de recharger une page contenant des saisies non enregistrées. Si une erreur persiste, consulter Réseau/Console dans les outils de développement du navigateur.
+
+Le test isolé `php tests/assets.php` vérifie la détection du mode 0600, sa correction, l’absence de modification des contenus et de fichiers privés, ainsi que le refus des fichiers manquants, personnalisés ou liés. Il utilise uniquement des fichiers fictifs temporaires.

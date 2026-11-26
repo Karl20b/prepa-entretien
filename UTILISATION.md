@@ -1,4 +1,4 @@
-# Guide d’utilisation — version 16
+# Guide d’utilisation — version 16.1
 
 ## Se connecter et associer Authenticator
 
@@ -109,3 +109,7 @@ La cinquième capsule explique le nouveau parcours de sécurité ; les quatre pr
 La capsule 06 montre les deux chemins d’édition, l’enregistrement de la version de travail, les exports DOCX et PDF et les précautions de conservation. [Vidéo seule](Guide_06_Modifier_et_exporter.mp4).
 
 La version 16 actualise les textes du guide et l’éditeur. Les six vidéos existantes sont conservées ; la capsule 06 montre le parcours d’édition et d’export de la version 15.1, dont la présentation de l’éditeur diffère. La fonction de cercles est décrite ci-dessus et dans le guide intégré.
+
+## Si les formes ne s’affichent plus
+
+Après avoir préservé les saisies non enregistrées, recharger la page. Si le plateau reste vide ou les boutons ne répondent pas, demander à l’installateur de suivre le contrôle des fichiers publics dans [INSTALLATION.md](INSTALLATION.md). Une erreur de chargement CSS/JavaScript ne prouve pas la perte du dessin ; ne pas le supprimer ni réinitialiser la base pour résoudre cet affichage.
