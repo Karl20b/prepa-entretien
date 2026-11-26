@@ -1,4 +1,4 @@
-# Guide d’utilisation — version 15
+# Guide d’utilisation — version 15.1
 
 ## Se connecter et associer Authenticator
 
@@ -80,7 +80,10 @@ Le Guide intégré présente le parcours P1 à P7 et les exemples d’utilisatio
 | `media/guide-03.mp4` | Modifier le résumé avant validation | 1 min 40 |
 | `media/guide-04.mp4` | Utiliser les références dans EOGI et le feed-back | 1 min 35 |
 | `media/guide-05.mp4` | Authenticator, secours et renouvellement du mot de passe | 1 min 54 |
+| `media/guide-06.mp4` | Modifier la préparation et le feed-back, puis exporter Word/PDF | 1 min 35 |
 
 Les sous-titres `.vtt`, transcriptions `.txt` et affiches `.webp` sont inclus. Les vidéos sont consultables après connexion dans l’application ou directement dans le dossier extrait.
 
 La cinquième capsule explique le nouveau parcours de sécurité ; les quatre premières conservent leur sujet.
+
+La capsule 06 montre les deux chemins d’édition, l’enregistrement de la version de travail, les exports DOCX et PDF et les précautions de conservation. [Vidéo seule](Guide_06_Modifier_et_exporter.mp4).

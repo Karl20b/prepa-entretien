@@ -135,3 +135,7 @@ Contrôler après bascule : mot de passe puis TOTP ou secours à usage unique, r
 ## Mise à jour version 15
 
 Ajouter `vendor/tfpdf/`, ses polices et notices de licence, `src/Redaction/`, `sql/007_redactions.sql`, les modèles et `public/assets/redaction.js`. La migration 007 crée les versions de travail ; elles utilisent le coffre après activation du chiffrement. Copier aussi `media/guide-05.*` et `config/guide.json`. Préserver les corpus, rôles et données personnalisés. Exécuter `php bin/migrer.php` hors trafic ; sur une installation chiffrée, le même script installe aussi les contrôles de chiffrement sur la nouvelle table. Vérifier les accès directs docs (403 pour un utilisateur), Tester le RAG pour les deux rôles, les corrections, conflits entre onglets et les téléchargements Word/PDF.
+
+## Capsule 06 — version 15.1
+
+Mettre à jour `src/Media.php`, `templates/guide.php`, `config/guide.json` et ajouter les quatre fichiers `media/guide-06.*`. Préserver la configuration, les corpus et les données. Aucune migration de base ni nouvel appel IA métier n’est nécessaire pour cette capsule.

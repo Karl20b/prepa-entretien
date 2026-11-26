@@ -1,8 +1,10 @@
 # Prépa Entretien
 
-Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 15 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
+Application pédagogique autonome pour préparer un entretien professionnel, structurer les faits et décider des questions à poser. **Version 15.1 — 26 novembre 2026.** PHP et SQLite, sans dépendance à un portail.
 
 ## Nouveautés
+
+- Sixième capsule Vivienne : modifier la préparation et la trame de feed-back, enregistrer et exporter en Word ou PDF. Sous-titres et transcription inclus.
 
 - Préparation courante affichée une fois, historique replié, version de travail modifiable et sauvegardée indépendamment des réponses IA.
 - Exports Word `.docx` et PDF du texte corrigé ; trames de feed-back modifiables.
@@ -16,7 +18,7 @@ Application pédagogique autonome pour préparer un entretien professionnel, str
 - Résumé et propositions modifiables dans l’aperçu avant validation. Le cadre choisit la destination ; remplacer un texte existant nécessite une confirmation distincte, puis un enregistrement.
 - Choix d’un rôle et de son cahier des charges. Cette distribution fournit deux exemples fictifs, sans les CDC institutionnels privés.
 - Analyse systémique EOGI, feed-back de valorisation ou d’amélioration, constellation d’équipe, comptes et invitations modifiables.
-- Guide P1 à P7 séparé des méthodes métier dans le RAG et **cinq capsules avec la voix synthétique Vivienne**, sous-titres et transcriptions.
+- Guide P1 à P7 séparé des méthodes métier dans le RAG et **six capsules avec la voix synthétique Vivienne**, sous-titres et transcriptions.
 
 ## Télécharger
 
@@ -24,7 +26,7 @@ Application pédagogique autonome pour préparer un entretien professionnel, str
 
 [Installation et mise à jour](INSTALLATION.md) · [Guide d’utilisation](UTILISATION.md) · [Sécurité et périmètre](SECURITE.md) · [Historique](CHANGELOG.md)
 
-Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-05.mp4`, et dans le Guide après installation. Le code source est intégralement inclus dans l’archive, sous `application/src`, `templates`, `public`, `sql` et `tests`.
+Les vidéos se trouvent dans `application/media/guide-01.mp4` à `guide-06.mp4`, et dans le Guide après installation. Le code source est intégralement inclus dans l’archive, sous `application/src`, `templates`, `public`, `sql` et `tests`.
 
 ## Configuration et limites
 

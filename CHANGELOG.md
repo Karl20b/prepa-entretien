@@ -1,5 +1,10 @@
 # Historique
 
+## Version 15.1 — 26.11.2026
+
+- Capsule G06 avec voix Vivienne : modifier la préparation et le feed-back, enregistrer et télécharger en Word ou PDF.
+- Sous-titres, transcription, affiche et intégration au guide ; distribution complète actualisée.
+
 ## Version 15 — 26.11.2026
 
 - Préparation actuelle et historique replié ; version corrigée indépendante, chiffrée et protégée contre les conflits.
