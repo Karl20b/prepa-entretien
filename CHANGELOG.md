@@ -1,5 +1,14 @@
 # Historique
 
+## Version 17 — 26.11.2026
+
+- Fiche de conduite complète du feed-back : repères, contexte, faits, objectif, enjeux, six étapes détaillées, formulations, questions, notes et suivi.
+- Reprise des anciennes trames dans un aperçu modifiable sans écrasement automatique des corrections ; redirection des anciens téléchargements incomplets vers la relecture.
+- Informations manquantes signalées ; aucune réponse ni aucun accord inventé et aucun nouvel appel IA pour préparer ou exporter la fiche.
+- Tableau de suivi conservé après édition ; références identiques regroupées sans perdre leurs identifiants.
+- Guide intégré, guide d’utilisation, installation et sécurité actualisés. Six capsules et correctif de permissions V16.1 conservés.
+- Recette V17 : 26 contrôles spécifiques et 47 contrôles HTTP authentifiés sur comptes fictifs. Rendu Word contrôlé sur quatre pages dans le modèle vierge et l’exemple fictif.
+
 ## Version 16.1 — 26.11.2026
 
 - Prévention des erreurs 403 sur les assets : modes 0644 explicités dans l’archive et outil CLI de vérification/correction ciblée des dix CSS/JS publics.

@@ -187,3 +187,13 @@ Chaque URL doit répondre **200**, avec un type JavaScript (`application/javascr
 Recharger ensuite l’application, créer un dessin fictif, ajouter deux formes et un cercle, enregistrer puis rouvrir le dessin. Vérifier également l’enregistrement d’une rubrique dans l’éditeur et les exports Word/PDF. Éviter de recharger une page contenant des saisies non enregistrées. Si une erreur persiste, consulter Réseau/Console dans les outils de développement du navigateur.
 
 Le test isolé `php tests/assets.php` vérifie la détection du mode 0600, sa correction, l’absence de modification des contenus et de fichiers privés, ainsi que le refus des fichiers manquants, personnalisés ou liés. Il utilise uniquement des fichiers fictifs temporaires.
+
+## Mise à jour version 17 depuis 16 ou 16.1
+
+Cette version enrichit l’éditeur et les exports du feed-back, sans nouvelle migration SQL ni modification de la configuration IA. Sauvegarder et tester sur une copie isolée avant bascule. Préserver configuration, clé existante, données, sessions et corpus personnalisés.
+
+Mettre à jour `src/Redaction/Controller.php`, `Repository.php`, `Export.php`, `Text.php` et ajouter `src/Redaction/FeedbackDossier.php`. Mettre à jour `templates/redaction.php`, rapprocher les personnalisations de `templates/guide.php`, et ajouter `tests/v17.php`. Les sources restent hors de la racine Web. Aucun nouvel asset CSS/JS n’est requis par rapport à la V16 ; conserver leur mode 0644 et la procédure de contrôle V16.1 décrite ci-dessus. Si l’installation est antérieure à la V16, appliquer également les étapes des versions intermédiaires.
+
+Lancer `php tests/v17.php` sur une copie de validation. Vérifier avec un compte et un cas fictifs : ouverture d’un ancien brouillon vide, présence des faits et formulations existants, modification d’une rubrique, enregistrement, réouverture sans duplication et export Word/PDF. Le Word doit contenir la fiche complète et le tableau de suivi ; les références identiques sont regroupées. Une ancienne URL de téléchargement peut rediriger vers la fiche à relire avant l’enregistrement. Aucune donnée métier ne doit être envoyée pour ces tests.
+
+Les six vidéos précédentes sont conservées. Le guide écrit décrit le nouvel export ; aucune capsule n’a été refaite pour cette version.

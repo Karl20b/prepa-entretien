@@ -66,3 +66,7 @@ La distribution publique n’inclut aucune configuration active, clé, situation
 ## Permissions des assets publics — version 16.1
 
 `bin/verifier-assets.php` contrôle uniquement les dix fichiers CSS/JS du dossier public `assets` et peut leur appliquer le mode 0644 après comparaison de contenu avec les sources du paquet. Il ne charge ni configuration, ni session, ni base, ne modifie pas les dossiers et refuse les liens symboliques. L’accès public à ces seuls fichiers statiques est nécessaire à l’interface ; il ne rend publics ni les données métier ni les sources privées. Ne pas utiliser une correction récursive de permissions sur l’installation privée. Vérifier également l’accès HTTP réel : un mode conforme ne résout pas les restrictions d’ACL ou du serveur Web.
+
+## Contenu de la fiche de feed-back — version 17
+
+La fiche exportée rassemble davantage d’informations déjà disponibles pour son propriétaire : contexte, faits, intention du cadre, enjeux, grille et version de travail. Les contrôles de propriétaire et de révision restent appliqués. L’aperçu enrichi ne remplace une version enregistrée qu’à l’enregistrement explicite ; les anciennes trames incomplètes doivent être relues avant téléchargement. Cette préparation n’ajoute aucun appel IA. Les contenus de la version de travail restent chiffrés lorsque le coffre est actif ; les fichiers Word/PDF téléchargés restent lisibles hors application et doivent être conservés dans un emplacement privé.

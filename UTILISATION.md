@@ -1,4 +1,4 @@
-# Guide d’utilisation — version 16.1
+# Guide d’utilisation — version 17
 
 ## Se connecter et associer Authenticator
 
@@ -37,6 +37,39 @@ L’éditeur présente chaque rubrique avec son titre et une zone de texte. Vous
 Si un ancien brouillon est vide ou dépassé, choisissez **Repartir de la proposition actuelle**. Confirmez le remplacement dans l’éditeur, relisez cette proposition puis enregistrez. Vos corrections enregistrées ne sont remplacées qu’à ce dernier enregistrement. Une nouvelle génération seule ne les écrase pas.
 
 Les boutons **Enregistrer et télécharger Word / PDF** enregistrent d’abord le texte affiché. Le document contient cette version et ses références, sans l’historique complet des échanges. Aucun nouvel appel IA n’est nécessaire. Les conflits entre onglets sont refusés ; copiez vos corrections avant de recharger. Les exports sont lisibles hors application : conservez-les dans un espace privé.
+
+## Exporter une fiche complète de feed-back
+
+La fiche sert de support au cadre pendant l’entretien. Elle reprend les informations disponibles de la situation, les éléments renseignés dans la grille et les formulations de votre version de travail. Elle ajoute des repères de conduite et des espaces pour recueillir les propos et les accords réels.
+
+### Préparer et relire la fiche
+
+1. Vérifiez le contexte, les faits observés, l’objectif et les enjeux dans la situation. Choisissez le type de feed-back et complétez la grille.
+2. Ouvrez **Modifier la trame et exporter Word / PDF**. Si votre ancienne version n’est pas encore une fiche complète, l’éditeur prépare un aperçu enrichi. Les corrections enregistrées restent conservées jusqu’à votre prochain enregistrement.
+3. Relisez les rubriques et adaptez les formulations. Les informations absentes restent indiquées **À compléter** ou **À convenir**. Les formulations et questions proposées sont à adapter à la personne et à la situation.
+4. Vérifiez les éventuelles différences entre votre version de travail, les éléments de la grille et la proposition de l’assistant. Une proposition complète différente peut être présentée séparément pour confrontation ; une ancienne proposition reste à réexaminer.
+5. Choisissez **Enregistrer ma version** ou **Enregistrer et télécharger Word / PDF**. Les exports utilisent le texte réellement enregistré. L’édition, la préparation de la fiche et l’export ne déclenchent aucun nouvel appel IA.
+
+### Ce que contient le document
+
+| Partie | Utilité pendant l’entretien |
+| --- | --- |
+| Repères de l’entretien | Situation, type de feed-back, référence du collaborateur, fonction et date disponibles |
+| Situation et intention du cadre | Contexte, faits rapportés, objectif et enjeux perçus |
+| Ouverture proposée | Introduire le sujet et laisser une place au point de vue de la personne |
+| Six étapes détaillées | Exposer les faits, expliquer les effets, écouter, clarifier les attentes, co-construire la suite et assurer le suivi |
+| Formulations et questions | Retrouver les éléments préparés et des formulations à adapter |
+| Notes de l’échange | Consigner les propos réellement recueillis, corrections et désaccords |
+| Tableau de suivi | Actions, responsables, moyens, résultat attendu, échéance et point de retour à convenir |
+| Références | Vérifier les sources ; les références identiques sont regroupées en conservant leurs identifiants |
+
+La version de travail reste distincte des champs de la grille : la modifier ne remplit pas automatiquement l’atelier. Le tableau est conservé dans l’export Word après édition par rubriques. Le PDF reprend également la fiche complète, avec une mise en page adaptée au format.
+
+### Reprendre un ancien export vide
+
+Un ancien téléchargement contenant seulement les six titres est redirigé vers l’éditeur de la fiche complète. Relisez-la puis enregistrez-la avant de retélécharger. Si les faits ou la grille sont encore vides, complétez-les dans leur écran d’origine ; aucun contenu manquant n’est inventé. Si la situation ou la proposition a changé, l’avertissement invite à rapprocher les versions.
+
+Une fiche complète déjà enregistrée est conservée telle quelle à la réouverture. Pour repartir des informations et de la proposition actuelles, utilisez **Repartir de la proposition actuelle**, relisez et enregistrez explicitement ; copiez d’abord les corrections que vous souhaitez conserver. La fiche ne devient pas un compte rendu de l’entretien tant que les réponses et accords réels n’ont pas été recueillis. Conservez les exports dans un espace privé.
 
 ## Préparer la situation
 
@@ -108,7 +141,7 @@ La cinquième capsule explique le nouveau parcours de sécurité ; les quatre pr
 
 La capsule 06 montre les deux chemins d’édition, l’enregistrement de la version de travail, les exports DOCX et PDF et les précautions de conservation. [Vidéo seule](Guide_06_Modifier_et_exporter.mp4).
 
-La version 16 actualise les textes du guide et l’éditeur. Les six vidéos existantes sont conservées ; la capsule 06 montre le parcours d’édition et d’export de la version 15.1, dont la présentation de l’éditeur diffère. La fonction de cercles est décrite ci-dessus et dans le guide intégré.
+La version 17 actualise la fiche complète de feed-back et les textes du guide. Les six vidéos existantes sont conservées ; la capsule 06 montre le parcours d’édition et d’export de la version 15.1, dont la présentation de l’éditeur diffère. La fonction de cercles est décrite ci-dessus et dans le guide intégré.
 
 ## Si les formes ne s’affichent plus
 
